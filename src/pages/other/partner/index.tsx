@@ -83,7 +83,7 @@ const App: React.FunctionComponent = () => {
       <Grid container>
         <Grid item xs={6}>
           <Button variant="contained" onClick={handleUpload}>
-            upload
+            Read Xlsx
           </Button>
         </Grid>
       </Grid>
