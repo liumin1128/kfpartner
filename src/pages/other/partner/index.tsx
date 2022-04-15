@@ -65,6 +65,11 @@ const getHtml = (data: Item) => {
 
   result += `</div>`;
 
+  // result = result.replace(
+  //   '<img class="img" src="/icbc1.jpg">',
+  //   '<img class="img" src="https://636c-cloud1-7gggezex1216269c-1306594044.tcb.qcloud.la/kfpartner/logo/yqb.jpg" />',
+  // );
+
   return result;
 };
 
