@@ -35,7 +35,7 @@ const strList = (str: string): string => {
 const getHtml = (data: Item) => {
   let result = `<div>
 
-  <div class="logo" style="background-image: url('https://636c-cloud1-7gggezex1216269c-1306594044.tcb.qcloud.la/kfpartner/logo/${data.key}.jpg')"></div>
+  <div class="logo" style="background-image: url('https://cf-templates-tz0kmpjjot0a-cn-north-1.s3.cn-north-1.amazonaws.com.cn/wmppic/kf/partner/introduction/logo/${data.key}.jpg')"></div>
 
   </div>`;
 
