@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import RichText from './RichText';
-import { uploadFile, xlsx2Json } from './utils';
+import { uploadFile, xlsx2Json, downloadJSON } from './utils';
 
 interface Item {
   contact: string;
@@ -83,12 +83,33 @@ const App: React.FunctionComponent = () => {
     });
     setItem(data as Item[]);
   };
+
+  const handleSaveJSON = () => {
+    downloadJSON(
+      list.map((i) => {
+        return {
+          key: i.key,
+          title: i.title,
+          html: i.html,
+        };
+      }),
+    );
+  };
+
+  console.log('list');
+  console.log(list);
+  console.log(JSON.stringify(list));
+
   return (
     <div>
       <Grid container>
         <Grid item xs={6}>
           <Button variant="contained" onClick={handleUpload}>
             Read Xlsx
+          </Button>
+
+          <Button variant="outlined" onClick={handleSaveJSON}>
+            Save JSON
           </Button>
         </Grid>
       </Grid>

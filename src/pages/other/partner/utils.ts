@@ -20,6 +20,27 @@ export const uploadFile = () => {
   });
 };
 
+export const downloadJSON =(data : Object | string, filename = 'json.json') => {
+  return new Promise((resolve, reject) => {
+    if (!data) {
+      reject('data is null')
+      return;
+    }
+    if (typeof data === 'object') {
+      data = JSON.stringify(data, undefined, 4)
+    }
+    var blob = new Blob([data as string], { type: 'text/json' });
+    var e = document.createEvent('MouseEvents');
+    var a = document.createElement('a');
+    a.download = filename;
+    a.href = window.URL.createObjectURL(blob);
+    a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    a.dispatchEvent(e);
+    resolve(true)
+  })
+}
+
 // @ts-ignore
 export const xlsx2Json = (file) => {
   return new Promise((resolve, reject) => {
